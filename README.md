@@ -1,5 +1,5 @@
 # 📘 LIBRARY API : PYTHON + FLASK + CHATBOT
-
+Esta API, desarrollada con Python y Flask, gestiona una biblioteca e integra un chatbot de voz e imagen de Microsoft Azure. Utiliza servicios en la nube para almacenamiento y procesamiento de datos, con una base de datos alojada en Azure para garantizar escalabilidad y seguridad.
 ## 📥 Descarga e Instalación
 
 ### 1. Clona el repositorio
