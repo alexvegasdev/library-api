@@ -68,4 +68,4 @@ http://127.0.0.1:5000/api/authors/
  2. [Postman](https://www.postman.com/)
 
 
-### ¡Listo! Ahora puedes ejecutar y probar tu API. 🚀
+### ¡Listo! Ahora puedes ejecutar y probar el API. 🚀
