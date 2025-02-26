@@ -1,2 +1,5 @@
-#pip install flask flask_sqlalchemy pyodbc python-dotenv
+flask  
+flask_sqlalchemy  
+pyodbc  
+python-dotenv  
 
