@@ -1,0 +1,28 @@
+GO
+
+-- Crear tabla de autores
+CREATE TABLE authors (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    name NVARCHAR(255) NOT NULL
+);
+GO
+
+-- Crear tabla de libros
+CREATE TABLE books (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    title NVARCHAR(255) NOT NULL,
+    cover_url NVARCHAR(500),
+    description TEXT,
+    stock INT DEFAULT 1
+);
+GO
+
+-- Tabla intermedia para relación muchos a muchos entre libros y autores
+CREATE TABLE book_author (
+    book_id INT,
+    author_id INT,
+    PRIMARY KEY (book_id, author_id),
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
+    FOREIGN KEY (author_id) REFERENCES authors(id) ON DELETE CASCADE
+);
+GO
