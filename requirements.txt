@@ -2,4 +2,16 @@ flask
 flask_sqlalchemy  
 pyodbc  
 python-dotenv  
+azure-cognitiveservices-vision-customvision
+requests
+azure-core
+azure-ai-textanalytics
+Flask-SQLAlchemy
+botbuilder-core
+pyttsx3
+SpeechRecognition
+wikipedia
+pywhatkit
+pyodbc
+TextBlob
 
