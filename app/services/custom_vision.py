@@ -2,16 +2,14 @@ import requests
 import os
 from dotenv import load_dotenv
 
-# Cargar variables de entorno
 load_dotenv()
 
-# Obtener credenciales de Custom Vision desde .env
 PREDICTION_URL = os.getenv("AZURE_CUSTOM_VISION_ENDPOINT")
 PREDICTION_KEY = os.getenv("AZURE_CUSTOM_VISION_KEY")
 
 def analizar_imagen(image_path):
     """
-    Envía una imagen a Azure Custom Vision y devuelve las predicciones.
+    Envía una imagen a Azure Custom Vision y devuelve la predicción más alta.
     """
     headers = {
         "Content-Type": "application/octet-stream",
@@ -21,7 +19,18 @@ def analizar_imagen(image_path):
     with open(image_path, "rb") as image_data:
         response = requests.post(PREDICTION_URL, headers=headers, data=image_data)
     
-    if response.status_code == 200:
-        return response.json()  # Devuelve los resultados en JSON
-    else:
+    if response.status_code != 200:
         return {"error": "No se pudo procesar la imagen", "status": response.status_code}
+
+    predictions = response.json().get("predictions", [])
+    
+    if not predictions:
+        return {"error": "No se encontraron predicciones"}
+
+    # 🔥 Obtener la predicción con mayor probabilidad
+    best_prediction = max(predictions, key=lambda x: x["probability"])
+
+    return {
+        "tagName": best_prediction["tagName"],
+        "probability": best_prediction["probability"]
+    }
