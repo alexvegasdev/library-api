@@ -38,7 +38,7 @@ def analyze_image():
             "message": "La predicción no es lo suficientemente confiable",
             "predicted_title": result["tagName"],
             "probability": probability
-        }), 400
+        }), 200
 
     predicted_title = result["tagName"]
     book = Book.query.filter(Book.title.ilike(f"%{predicted_title}%")).first()
